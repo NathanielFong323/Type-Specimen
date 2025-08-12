@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Type Specimen: Canada Type Leather</title>
+</head>
+<header>
+    <!-- Title of the page -->
+    <div class="subTitle">Patrick Griffin # Canada Type</div>
+    <div class="title">~ Leather ~</div>
+    <div class="subTitle">2004</div>
+</header>
+<main>
+    <!-- History of the type Specimen-->
+    <h2>About Canada Type Leather</h2>
+    <!-- Two <p> to emulate old gothic books -->
+    <div id="borderImg" class="historyText">
+        <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean et est a dui semper facilisis. Pellentesque placerat elit a nunc. Nullam tortor odio, rutrum quis, egestas ut, posuere sed, felis. Vestibulum placerat feugiat nisl. Suspendisse lacinia, odio non feugiat vestibulum, sem erat blandit metus, ac nonummy magna odio pharetra felis. Vivamus vehicula velit non metus faucibus auctor. Nam sed augue. Donec orci. Cras eget diam et dolor dapibus sollicitudin. In lacinia, tellus vitae laoreet ultrices, lectus ligula dictum dui, eget condimentum velit dui vitae ante. Nulla nonummy augue nec pede. Pellentesque ut nulla. Donec at libero. Pellentesque at nisl ac nisi fermentum viverra. Praesent odio. Phasellus tincidunt diam ut ipsum. Donec eget est.</p>
+        <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean et est a dui semper facilisis. Pellentesque placerat elit a nunc. Nullam tortor odio, rutrum quis, egestas ut, posuere sed, felis. Vestibulum placerat feugiat nisl. Suspendisse lacinia, odio non feugiat vestibulum, sem erat blandit metus, ac nonummy magna odio pharetra felis. Vivamus vehicula velit non metus faucibus auctor. Nam sed augue. Donec orci. Cras eget diam et dolor dapibus sollicitudin. In lacinia, tellus vitae laoreet ultrices, lectus ligula dictum dui, eget condimentum velit dui vitae ante. Nulla nonummy augue nec pede. Pellentesque ut nulla. Donec at libero. Pellentesque at nisl ac nisi fermentum viverra. Praesent odio. Phasellus tincidunt diam ut ipsum. Donec eget est.</p>
+    </div>
+
+    <!-- Different weight displays -->
+    <h2>Type Specimen Weights</h2>
+    <!-- Light weight -->
+    <div class="weight">
+        <div id="weightText" style="font-weight: 300;">Thin and elegant</div>
+    </div>
+    <!-- Regular weight -->
+    <div class="weight">
+        <div id="weightText" style="font-weight: 400;">Standard regular</div>
+    </div>
+
+    <!-- Character Sheet -->
+    <h2>Reduced Character Sheet</h2>
+    <!-- Box to display large character -->
+    <div class="letterDisplay" id="letterBox"></div>
+    <!-- Hover buttons to display -->
+    <div>
+        <button onmouseover="showLetter('A')">A</button>
+        <button onmouseover="showLetter('B')">B</button>
+    </div>
+    <script>
+        function showLetter(letter) {
+            document.getElementById('letterBox').textContent = ''; //refresh letterDisplay when hover to new Btn
+            const box = document.getElementById('letterBox'); //show the large characters
+            box.textContent = letter;
+        }
+    </script>
+</main>
+
+<footer>
+    <p>Type Specimen Showcase | Designed to demonstrate Leather</p>
+</footer>
+</body>
+</html>
+

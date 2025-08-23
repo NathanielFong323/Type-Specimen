@@ -1,138 +1,409 @@
     /* Base styles */
+    /* Defining fonts name */
     @font-face {
-        font-family: leather;
+        font-family: leatherReg;
         src: url(leather-light-1.woff);
     }
-    :root {
-        --primary: #ff2d2d;
-        --secondary: #000000;
-        --light: #ffeada;
-        --accent: #003154;
+    @font-face {
+        font-family: leatherBold;
+        src: url(leather-regular-1.woff);
     }
+    @font-face {
+        font-family: textura;
+        src: url(TexturaModern.ttf);
+    }
+    /* Defining color pallette and units */
+    :root {
+        --title: #fb0d49;
+        --primary: #fb0d49;
+        --secondary: #1a1a1a;
+        --light: #ffffff;
+        --accent: #3e3e3e;
+        --demoButtonUnit: 2.5rem;
+    }
+    /* Body styles */
     * {
         margin: 0;
         padding: 0;
         box-sizing: border-box;
     }
     body {
-        border: 60px solid transparent;
-        padding: 15px;
-        border-image: url(border2.png) 40% round;
-        font-family: leather, serif;
+        font-family: leatherReg, serif;
         font-style: normal;
         font-weight: 300;
         line-height: 1.6;
         color: var(--primary);
-        background-color: var(--light);
-        margin: 10px;
-        padding: 20px;
-    }
-    
-    /* Image for the borders */
-    #borderImg { 
-        border: 60px solid transparent;
-        padding: 15px;
-        border-image: url(border2.png) 40% round;
+        background-color: var(--secondary);
+        margin: 0rem;
+        text-align: center;
+        padding: 1.6em 0;
+        margin-bottom: -4em;
+        overflow-x: hidden;
     }
 
-    /* Subheadings */
-    h1, h2, h3 {
-        font-weight: 400;
-        line-height: 1.2;
-        margin-bottom: 0.5em;
-    }
+    /* Subheading styles */
     h1 {
-        font-size: 3rem;
-        margin-bottom: 0.2em;
-    }
-    h2 {
+        font-family: leatherReg, serif;
         font-size: 2rem;
-        border-bottom: 2px solid var(--accent);
+        font-weight: 300;
         padding-bottom: 0.3em;
         margin-top: 2em;
-    }
-    h3 {
-        font-size: 1.5rem;
-        color: var(--accent);
+        margin-bottom: -1em;
+        color: var(--light);
     }
     p {
+        font-family: serif;
         margin-bottom: 1em;
+        font-size: 1.6rem;
+        line-height: 2rem;
+        color: var(--light);
     }
     
-    /* Header */
+    /* Header styles */
     header {
         text-align: center;
         padding: 1.6em 0;
         margin-bottom: -2em;
     }
     .title {
-        font-size: 6rem;
-        font-weight: 400;
+        font-family: leatherBold, serif;
+        font-size: 20rem;
+        font-weight: 300;
         letter-spacing: -1px;
         margin-top: -0.2em;
         margin-bottom: -0.2em;
+        color: var(--title);
     }
     .subTitle {
-        font-size: 2rem;
-        font-weight: 400;
-        color: var(--secondary);
+        font-family: leatherBold, serif;
+        font-size: 3rem;
+        font-weight: 500;
+        margin-bottom: -1rem;
+        color: var(--light);
     }
 
     /* Sections */
-    body {
-        text-align: center;
-        padding: 1.6em 0;
-        margin-bottom: -4em;
-    }
-    section {
-        margin-bottom: 3em;
-    }
-
-    /* History */
-    .historyText {
+    .section {
         display: flex;
-        max-width: 80%;
+        max-width: 100%;
         gap: 2rem;
         margin: auto;
         font-size: 1.5rem;
         font-weight: 300;
-        line-height: 1.7rem;
+        line-height: 1.9rem;
+        margin-top: 2rem;
+        position: relative;
+    }
+
+    /* Animation for letters */
+    #letterLineAnimateRight {
+        font-family: leatherReg;
+        width: 300%;
+        font-size: 2rem;
+        position: relative;
+        animation-name: letterToRight;
+        animation-duration: 24s;
+        animation-iteration-count: infinite;
+        animation-timing-function: linear;
+        margin-bottom: 0.5rem;
+    }
+    #letterLineAnimateLeft {
+        font-family: leatherReg;
+        width: 300%;
+        font-size: 2rem;
+        position: relative;
+        animation-name: example;
+        animation-duration: 24s;
+        animation-iteration-count: infinite;
+        animation-timing-function: linear;
+        margin-bottom: 0.5rem;
+    }
+    @keyframes letterToRight {
+      0%   {color:var(--primary); left:-180%; top:0px;}
+      100% {color:var(--primary); left:-101.5%; top:0px;}
+    }
+    @keyframes example {
+      100%   {color:var(--light); left:-180%; top:0px;}
+      0% {color:var(--light); left:-101.5%; top:0px;}
+    }
+
+    /* History */
+    #historyText {
+        display: flex;
     }
     
-    /* Weight */ 
-    .weight {
-        background: white;
-        padding: 2em;
-        border-radius: 8px;
-        box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+    /* Weight showcases */
+    /* Adjusts - Sliding Bar */ 
+    .slidecontainer {
+        position: relative;
+        margin-top: -2rem;
+        width: 100%;
+        text-align: left;
+    }
+    .slider {
+        position: absolute;
+        appearance: none;
+        width: 60%;
+        height: 0.6rem;
+        background: var(--light);
+        outline: none;
+        top: -5rem;
+    }
+    .slider::-webkit-slider-thumb {
+        -webkit-appearance: none;
+        appearance: none;
+        width: 0.6rem;
+        height: 0.6rem;
+        background: var(--accent);
+        cursor: pointer;
+        -webkit-transition: .2s;
+    }
+    .slider::-webkit-slider-thumb:hover {
+        background: var(--secondary);
+    }
+
+    /* Adjusts - Demo Showcases */ 
+    #weight {
+        padding: 2rem;
+        margin-top: 2rem;
+        margin-bottom: -2rem;
+        display: flex;
+        flex-wrap:wrap;
     }
     #weightText {
-        font-size: 2rem;
+        font-family: serif;
+        color: var(--light);
+        font-size: 1rem;
+        font-weight: 300;
         margin-bottom: 0.5em;
         line-height: 1.2;
+        max-width: fit-content;
+        margin-left: 0px;
+        margin-right: auto;
+        margin-bottom: 1rem;
+        margin-top: -1rem;
+    }
+    .fontAdjust {
+        position: absolute;
+        color: var(--light);
+        line-height: 1.2;
+        margin-bottom: -0.8rem;
+        margin-top: -1.5rem;
+        top: 6rem;
     }
 
     /* Character Sheet */
-    .letterDisplay {
-        width: 300px;
-        height: 300px;
-        border: 2px solid #333;
+    /* Drop Down Menus */
+    .dropBtn {
+        font-family: serif;
+        justify-content: center;
+        background-color: var(--accent);
+        border: 2px solid var(--light);
+        color: var(--light);
+        padding: 0.5rem;
+        font-size: 1.5rem;
+        border: none;
+        cursor: pointer;
+        width: 30rem;
+        height: 2.5rem;
+        min-width: 10rem;
+    }
+    .dropBtn:hover, .dropBtn:focus {
+        background-color: var(--secondary);
+    }
+    .dropdown {
+        position: absolute;
+        left: 4.5rem;
+        top: 1rem;
+        display: inline-block;
+    }
+    .dropDownContent {
+        font-family: serif;
+        display: none;
+        position: absolute;
+        background-color: var(--light);
+        width: 30rem;
+        overflow: auto;
+        box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+        z-index: 1;
+    }
+    .dropDownContent a {
+        color: black;
+        padding: 12px 16px;
+        text-decoration: none;
+        display: block;
+    }
+    .dropdown a:hover {background-color: #ddd;}
+    .show {display: block;}
+
+    /* Big Demo Display */
+    #letterBox {
+        position: absolute;
+        left: 3.5rem;
+        top: 3.5rem;
         display: flex;
         justify-content: center;
         align-items: center;
-        font-size: 8rem;
-        font-weight: bold;
-        margin: 20px auto;
+        min-width: 30rem;
+        min-height: 30rem;
+        margin: 1rem 0rem 1rem 1rem;
+        border: 1px solid var(--secondary);
+        color: var(--light);
+        font-size: 18rem;
+        padding: -1rem;
     }
-    button {
-        padding: 10px 20px;
-        font-size: 1.6rem;
-        cursor: pointer;
-        margin: 10px;
-        background-color: white;
-        color: #ff2d2d;
+    .lineHorizontal {
+        width: 30rem;
+        height: 1px;
+        border-bottom: 1px solid var(--secondary);
+        position: absolute;
     }
 
+    /* Demo Display Buttons */
+    .letterButtonBox{
+        position: absolute;
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        right: 0rem;
+        width: 35rem;
+        height: 2.5rem;
+        margin: 1rem 1rem 1rem 0rem;
+    }
+    #letterButton02{
+        top: calc(2rem + var(--demoButtonUnit));
+    }
+    #letterButton03{
+        top: calc(2rem + 2 * var(--demoButtonUnit));
+    }
+    #letterButton04{
+        top: calc(2rem + 3 * var(--demoButtonUnit));
+    }
+    #letterButton05{
+        top: calc(2rem + 4 * var(--demoButtonUnit));
+    }
+    #letterButton06{
+        top: calc(2rem + 5 * var(--demoButtonUnit));
+    }
+    #letterButton07{
+        top: calc(2rem + 6 * var(--demoButtonUnit));
+    }
+    #letterButton08{
+        top: calc(2rem + 7 * var(--demoButtonUnit));
+    }
+    #letterButton09{
+        top: calc(2rem + 8 * var(--demoButtonUnit));
+    }
+    #letterButton10{
+        top: calc(2rem + 9 * var(--demoButtonUnit));
+    }
+    #letterButton11{
+        top: calc(2rem + 10 * var(--demoButtonUnit));
+    }
+    #letterButton12{
+        top: calc(2rem + 11 * var(--demoButtonUnit));
+    }
+    #letterButton13{
+        top: calc(2rem + 12 * var(--demoButtonUnit));
+    }
+    #letterButton14{
+        top: calc(2rem + 13 * var(--demoButtonUnit));
+    }
+    .letterButtonBox button {
+        background-color: var(--primary);
+        width: 2.5rem;
+        height: 2.5rem;
+        font-family: leatherReg;
+        font-size: 1.6rem;
+        color: var(--light);
+        border: 1px solid var(--secondary);
+        transition: background-color 0.4s;
+        transition: border 2s;
+    }
+    .letterButtonBox button:hover {
+        transition: background-color 0.4s;
+        background-color: var(--secondary);
+        border: 1px solid var(--light);
+    }
+
+    /* Type Analysis */
+    /* Define area of where all information is showed */
+    .analysisShowcase{
+        position: absolute;
+        color: var(--light);
+        line-height: 1.2;
+        font-family: leatherReg; 
+        font-size: 20rem;
+        right: 10rem; 
+        top: 5rem;
+        margin-inline: auto; 
+        width: fit-content;
+        height: 22rem;
+    }
+    .infoSummary{
+        position: absolute;
+        font-family: Arial, Helvetica, sans-serif;
+        font-size: 1rem;
+        line-height: 1.5rem;
+        text-align: right;
+        top: 50%;
+        right: 9rem;
+        transform: translate(-50%, -50%);
+        width: 16rem;
+    }
+    .infoLine{
+        position: absolute;
+        width: 5rem;
+        height: 1px;
+        border: 1px solid #801c35;
+    }
+    .infoText{
+        position: relative;
+        font-family: Arial, Helvetica, sans-serif;
+        font-size: 1rem;
+        color: var(--primary);
+    }
+    .infoOverlay{
+        position: relative;
+        background-color: #ff3467; 
+        mix-blend-mode: darken;
+    }
+    /* Analysis buttons */
+    #infoBox button {
+        position: absolute;
+        width: 20rem;
+        height: 2rem;
+        left: 4rem;
+        top: 4.5rem;
+        font-family: arial;
+        font-size: 1.1rem;
+        color: var(--primary);
+        background-color: var(--secondary);
+        border: 1px solid var(--primary);
+        transition: background-color 0.4s;
+        transition: border 2s;
+        text-align: left;
+        text-indent: 2rem;
+    }
+    #infoBox button:hover {
+        transition: background-color 0.4s;
+        background-color: var(--secondary);
+        border: 1px solid var(--light);
+    }
+    /* Type reveal aniation */
+    .revealBox {
+        position: absolute;
+        background-color: var(--secondary);
+        height: 30rem;
+        width: 55rem;
+        left: 25rem;
+        z-index: 100;
+        transition: all 2s ease;
+    }
+    .revealBox.revealAnimate  {
+        left: 80rem;
+    }
+    
     /* Footer */
     footer {
         text-align: center;
